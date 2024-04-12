@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
+
   return (
     <div className="shadow-md">
       <div className="navbar max-w-7xl md:h-[80px] w-[95%] md:w-[93%] mx-auto">
@@ -9,7 +12,7 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost lg:hidden pl-0 pr-1"
+              className="btn btn-ghost lg:hidden pl-0 pr-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +43,7 @@ const Navbar = () => {
           </div>
           <Link
             to={"/"}
-            className="text-lg md:text-3xl cursor-pointer font-bold "
+            className="text-xl md:text-3xl min-w-full cursor-pointer font-bold "
           >
             Real Estate
           </Link>
@@ -56,28 +59,49 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-1 md:gap-3">
-          <Link to={"/login"}>
-            {/* <button className="btn bg-[#5b56bb] border-[#5b56bb] hover:border-[#28282B] hover:text-[#28282B] text-white uppercase transition-all hover:bg-white duration-300 text-xs md:text-sm">
-              Login
-            </button> */}
-            <button className="font-semibold text-sm md:text-base hover:text-[#5b56bb]">
-              Login
-            </button>
-          </Link>
-          <Link to={"/register"}>
-            {/* <button className="btn bg-[#5b56bb] border-[#5b56bb] hover:border-[#28282B] hover:text-[#28282B] text-white uppercase transition-all hover:bg-white duration-300 text-xs md:text-sm">
-              Register
-            </button> */}
-            <button className="font-semibold text-sm md:text-base hover:text-[#5b56bb]">
-              Register
-            </button>
-          </Link>
-          <div
-            data-tip="Name"
-            className="h-10 md:h-12 w-10 md:w-12 tooltip tooltip-left cursor-pointer rounded-full bg-slate-400"
-          >
-            <img src="" alt="" />
-          </div>
+          {user ? (
+            <div
+              data-tip={user.displayName}
+              className="dropdown dropdown-end tooltip tooltip-left"
+            >
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-8 md:w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">Profile</a>
+                </li>
+                <li>
+                  <a onClick={logout}>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="flex gap-2 md:gap-3">
+              <Link to={"/login"}>
+                <button className="font-semibold text-sm md:text-base hover:text-[#5b56bb]">
+                  Login
+                </button>
+              </Link>
+              <Link to={"/register"}>
+                <button className="font-semibold text-sm md:text-base hover:text-[#5b56bb]">
+                  Register
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

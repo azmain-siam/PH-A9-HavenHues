@@ -1,17 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser } = useAuth();
 
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    const { email, password } = data;
-    createUser(email, password)
+    const { email, password, photoURL } = data;
+    console.log(data);
+    createUser(email, password, photoURL)
       .then((result) => console.log(result.user))
       .catch((error) => console.log(error.message));
   };
