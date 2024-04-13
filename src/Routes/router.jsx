@@ -13,6 +13,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("/Data/Data.json"),
       },
       {
         path: "/profile-update",

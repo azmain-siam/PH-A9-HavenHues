@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <div className="shadow-md">
-      <div className="navbar max-w-7xl md:h-[80px] w-[95%] md:w-[93%] mx-auto">
+      <div className="navbar max-w-7xl w-[95%] md:w-[93%] mx-auto md:h-[80px] ">
         <div className="navbar-start gap-0">
           <div className="dropdown">
             <div

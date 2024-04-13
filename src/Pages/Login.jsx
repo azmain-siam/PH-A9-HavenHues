@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl justify-between overflow-hidden w-full lg:w-3/4 mx-auto">
+    <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl justify-between overflow-hidden w-[95%] lg:w-3/4 mx-auto">
       <div className="col-span-3">
         <div data-aos="fade-right" data-aos-duration="1000">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">

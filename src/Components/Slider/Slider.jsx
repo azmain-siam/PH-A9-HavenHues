@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import "swiper/swiper-bundle.css";
 
 const Slider = ({ slides }) => {
-  console.log(slides);
   return (
     <div>
       <Swiper
@@ -45,5 +44,5 @@ const Slider = ({ slides }) => {
 export default Slider;
 
 Slider.propTypes = {
-  slides: PropTypes.element,
+  slides: PropTypes.array,
 };
