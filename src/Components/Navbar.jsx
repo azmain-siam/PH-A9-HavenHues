@@ -43,9 +43,9 @@ const Navbar = () => {
           </div>
           <Link
             to={"/"}
-            className="text-xl md:text-3xl min-w-full cursor-pointer font-bold "
+            className="text-2xl font-spartan pt-1 md:text-4xl min-w-full flex items-center cursor-pointer font-bold "
           >
-            Real Estate
+            Haven<span className="text-[#5b56bb]  font-bold">Hues</span>.
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

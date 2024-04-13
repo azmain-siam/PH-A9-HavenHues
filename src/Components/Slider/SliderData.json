@@ -1,5 +1,10 @@
 [
   {
+    "title": "Waterfront Residences",
+    "description": "Indulge in breathtaking views and waterfront living with our selection of premium residences situated in prime locations.",
+    "image": "https://i.ibb.co/mDD2Q5L/waterfront.jpg"
+  },
+  {
     "title": "Luxurious Villas",
     "description": "Discover exquisite villas nestled in serene surroundings, offering luxurious amenities and unparalleled comfort.",
     "image": "https://i.ibb.co/mtgDC2k/modern-condo-townhouses-in-evening-free-photo.jpg"
@@ -19,10 +24,5 @@
     "title": "Family-Friendly Homes",
     "description": "Find your perfect family-friendly home in our diverse selection of residential properties, designed to accommodate every lifestyle.",
     "image": "https://i.ibb.co/RQZHy0J/Home-Image.jpg"
-  },
-  {
-    "title": "Waterfront Residences",
-    "description": "Indulge in breathtaking views and waterfront living with our selection of premium residences situated in prime locations.",
-    "image": "https://i.ibb.co/mDD2Q5L/waterfront.jpg"
   }
 ]

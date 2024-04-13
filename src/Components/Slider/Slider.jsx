@@ -25,9 +25,9 @@ const Slider = ({ slides }) => {
             style={{ backgroundImage: `url(${slide.image})` }}
             className="slider bg-cover bg-center bg-no-repeat w-full"
           >
-            <div className="h-[300px] md:min-h-[calc(100vh-80px)]">
+            <div data-aos="fade-zoom-in" className="h-[300px] md:min-h-[calc(100vh-80px)]">
               <div className="h-[300px] md:min-h-[calc(100vh-80px)] w-full bg-black bg-opacity-50 text-center flex flex-col justify-center items-center">
-                <h3 className="text-white text-2xl md:text-6xl font-bold mb-3">
+                <h3   className="text-white text-2xl md:text-6xl font-bold mb-3">
                   {slide.title}
                 </h3>
                 <p className="text-[#FFFFFFCC] text-xs md:text-lg w-[90%] md:w-[700px]">

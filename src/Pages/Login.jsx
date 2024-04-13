@@ -6,6 +6,8 @@ import useAuth from "../hooks/useAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 
+import "aos/dist/aos.css";
+
 const Login = () => {
   const { signinUser } = useAuth();
 
@@ -29,7 +31,7 @@ const Login = () => {
   return (
     <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl justify-between overflow-hidden w-full lg:w-3/4 mx-auto">
       <div className="col-span-3">
-        <div>
+        <div data-aos="fade-right" data-aos-duration="1000">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="text-3xl font-bold text-center">
               <h3>Sign In</h3>
@@ -86,7 +88,11 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="bg-gradient-to-r from-[#5b56bb] to-[#5238A9] capitalize col-span-3 rounded-l-[150px] text-white hidden md:flex flex-col justify-center items-center min-h-full">
+      <div
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        className="bg-gradient-to-r from-[#5b56bb] to-[#5238A9] capitalize col-span-3 rounded-l-[150px] text-white hidden md:flex flex-col justify-center items-center min-h-full"
+      >
         <h3 className="text-4xl font-bold mb-3">Welcome Back!</h3>
         <p className="mb-2 text-sm w-3/4 text-center">
           Enter your credentials to access your account.

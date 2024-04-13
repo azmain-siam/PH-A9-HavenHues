@@ -32,11 +32,14 @@ const AuthProvider = ({ children }) => {
 
   // Observer
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       }
     });
+    return () => {
+      unSubscribe();
+    };
   }, []);
 
   // Pass the infos

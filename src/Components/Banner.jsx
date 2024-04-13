@@ -6,7 +6,7 @@ import "swiper/css";
 
 const Banner = () => {
   return (
-    <div>
+    <div data-aos="fade-left" data-aos-duration="1000">
       <Slider slides={slides} />
     </div>
   );
