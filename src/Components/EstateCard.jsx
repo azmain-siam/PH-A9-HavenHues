@@ -13,6 +13,7 @@ const EstateCard = ({ estate }) => {
     bathrooms,
     facilities,
     image,
+    id,
   } = estate;
   return (
     <div>
@@ -22,7 +23,10 @@ const EstateCard = ({ estate }) => {
         className="card w-full max-w-[420px] mx-auto border h-full hover:shadow-md duration-300"
       >
         <figure className="relative">
-          <img className="h-[200px] md:h-[250px] w-full object-cover" src={image} />
+          <img
+            className="h-[200px] md:h-[250px] w-full object-cover"
+            src={image}
+          />
           <div
             className={`absolute bottom-0 right-0 z-10 text-white px-4 py-1 ${
               status === "Sale" ? "bg-[#5EA51C]" : "bg-[#F95C64]"
@@ -34,7 +38,6 @@ const EstateCard = ({ estate }) => {
           </div>
         </figure>
         <div className="card-body p-4">
-
           <h2 className="card-title font-bold capitalize">{estate_title}</h2>
 
           <p className="font-medium text-[#585858]">{description}</p>
@@ -61,7 +64,7 @@ const EstateCard = ({ estate }) => {
               <p className="font-medium">{area}</p>
             </div>
           </div>
-          <Link to={"/"}>
+          <Link to={`/estates/${id}`}>
             <button className="btn w-full mt-4 bg-[#5b56bb] border-[#5b56bb] hover:border-[#28282B] hover:text-[#28282B] text-white uppercase transition-all hover:bg-white duration-300 hover:scale-105">
               show details
             </button>

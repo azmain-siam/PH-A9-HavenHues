@@ -54,6 +54,9 @@ const Navbar = () => {
               <NavLink to={"/"}>Home</NavLink>
             </li>
             <li>
+              <a href="#estates">Estates</a>
+            </li>
+            <li>
               <NavLink to={"/profile-update"}>Update Profile</NavLink>
             </li>
           </ul>

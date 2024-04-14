@@ -11,10 +11,6 @@ const Footer = () => {
               <h3 className="text-lg md:text-2xl font-bold">
                 HavenHues Properties.
               </h3>
-
-              {/* <p className="text-xs md:text-sm">
-                Where Every Home Tells a Colorful Story.
-              </p> */}
             </div>
           </aside>
 
