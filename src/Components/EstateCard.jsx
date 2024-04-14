@@ -20,13 +20,15 @@ const EstateCard = ({ estate }) => {
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className="card w-full max-w-[420px] mx-auto border h-full hover:shadow-md duration-300"
+        className="group/item card rounded-xl w-full max-w-[420px] mx-auto h-full border shadow-md hover:shadow-lg hover:border-[#5b56bb88] duration-300"
       >
         <figure className="relative">
-          <img
-            className="h-[200px] md:h-[250px] w-full object-cover"
-            src={image}
-          />
+          <div className="w-full h-[200px] md:h-[250px] overflow-hidden">
+            <img
+              className="w-full h-full group-hover/item:scale-110 duration-700 object-cover"
+              src={image}
+            />
+          </div>
           <div
             className={`absolute bottom-0 right-0 z-10 text-white px-4 py-1 ${
               status === "Sale" ? "bg-[#5EA51C]" : "bg-[#F95C64]"
