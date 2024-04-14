@@ -17,8 +17,12 @@ const Register = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl overflow-hidden w-full md:w-3/4 mx-auto">
-      <div className="bg-gradient-to-r from-[#596EC4] to-[#5952B8] capitalize md:col-span-3 rounded-r-[150px] text-white hidden md:flex flex-col justify-center items-center min-h-full">
+    <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl overflow-hidden w-[95%] lg:w-3/4 mx-auto">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        className="bg-gradient-to-r from-[#596EC4] to-[#5952B8] capitalize md:col-span-3 rounded-r-[150px] text-white hidden md:flex flex-col justify-center items-center min-h-full"
+      >
         <h3 className="text-4xl font-bold mb-3">Hello there!</h3>
         <p className="mb-2 text-sm w-3/4 text-center">
           Begin your journey by creating an account.
@@ -35,12 +39,16 @@ const Register = () => {
           </Link>
         </div>
       </div>
-      <div className="md:col-span-3 flex items-center justify-center w-full">
+      <div
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        className="md:col-span-3 flex items-center justify-center w-full"
+      >
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="card-body p-5 md:p-8 w-full"
         >
-          <div className="md:text-3xl text-xl font-bold text-center">
+          <div className="text-3xl font-bold text-center">
             <h3>Sign Up</h3>
           </div>
           <div className="form-control ">

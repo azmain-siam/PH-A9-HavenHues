@@ -5,6 +5,7 @@ import ProfileUpdate from "../Pages/ProfileUpdate";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import EstateDetails from "../Pages/EstateDetails";
+import Contact from "../Pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

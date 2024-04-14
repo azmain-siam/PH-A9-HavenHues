@@ -5,7 +5,11 @@ const ProfileUpdate = () => {
   console.log(user);
   return (
     <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl overflow-hidden w-[95%] lg:w-3/4 mx-auto">
-      <div className="bg-gradient-to-r from-[#596EC4] to-[#5952B8] capitalize md:col-span-3 py-10 md:p-0 px-4 rounded-b-3xl md:rounded-r-[150px] text-white md:flex flex-col justify-center items-center min-h-full">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        className="bg-gradient-to-r from-[#596EC4] to-[#5952B8] capitalize md:col-span-3 py-10 md:p-0 px-4 rounded-b-3xl md:rounded-r-[150px] text-white md:flex flex-col justify-center items-center min-h-full"
+      >
         <div className="w-36 h-36 bg-white rounded-full flex justify-center mx-auto items-center mb-5">
           <img
             className="h-full w-full object-cover rounded-full"
@@ -30,7 +34,11 @@ const ProfileUpdate = () => {
           </tbody>
         </table>
       </div>
-      <div className="md:col-span-3 flex items-center justify-center w-full">
+      <div
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        className="md:col-span-3 flex items-center justify-center w-full"
+      >
         <form className="card-body p-5 md:p-8 w-full">
           <div className="md:text-3xl mb-2 text-xl font-bold text-center">
             <h3>Update Your Profile</h3>

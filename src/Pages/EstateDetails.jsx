@@ -1,4 +1,4 @@
-import { FaBath, FaBed, FaRulerCombined } from "react-icons/fa6";
+import { FaBath, FaBed, FaLocationDot, FaRulerCombined } from "react-icons/fa6";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const EstateDetails = () => {
@@ -18,14 +18,14 @@ const EstateDetails = () => {
     image,
     description_2,
     location,
-    highlight_features
+    highlight_features,
   } = estate;
 
   return (
     <div className="max-w-7xl w-[93%] md:w-[93%] mx-auto mt-4 mb-14">
       <div className="w-full h-[240px] md:h-[400px] lg:h-[550px] rounded-xl overflow-hidden cursor-pointer mb-3">
         <img
-          className="object-cover w-full h-full hover:scale-110 duration-700 transition-all"
+          className="object-cover w-full h-full hover:scale-105 duration-700 transition-all"
           src={image}
         />
       </div>
@@ -39,15 +39,23 @@ const EstateDetails = () => {
       </div>
       <div className="flex flex-col lg:flex-row justify-between gap-6 lg:items-center mb-6 md:mb-10">
         <div className="space-y-2">
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">{estate_title}</h3>
-          <p className="font-medium text-[#585858]  text-sm md:text-lg">{description} </p>
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">
+            {estate_title}
+          </h3>
+          <p className="font-medium text-[#585858]  text-sm md:text-lg">
+            {description}{" "}
+          </p>
         </div>
         <h3 className="text-2xl md:text-3xl font-extrabold">Price: {price}</h3>
       </div>
       <div className="space-y-7 mb-8">
         <div>
-          <h3 className="text-xl lg:text-2xl font-semibold mb-2">Description</h3>
-          <p className="font-medium text-[#585858] text-sm md:text-lg">{description_2}</p>
+          <h3 className="text-xl lg:text-2xl font-semibold mb-2">
+            Description
+          </h3>
+          <p className="font-medium text-[#585858] text-sm md:text-lg">
+            {description_2}
+          </p>
         </div>
       </div>
       <div>
@@ -62,10 +70,18 @@ const EstateDetails = () => {
           </h3>
           <div className="px-5 py-4 border-b">
             <h3 className="md:text-lg font-semibold mb-2">Location:</h3>
-            <li className="list-disc ml-3 text-sm md:text-base font-medium">{location}</li>
+            <div className="ml-3 grid md:grid-cols-3 gap-2 text-sm md:text-base">
+              <div className="flex gap-2 items-center ">
+                <FaLocationDot size={18}/>
+                <p className="font-medium pt-[2px]">{location}</p>
+              </div>
+              
+            </div>
           </div>
           <div className="px-5 py-4 border-b">
-            <h3 className="md:text-lg font-semibold mb-2">Beds & Bathrooms: </h3>
+            <h3 className="md:text-lg font-semibold mb-2">
+              Beds & Bathrooms:{" "}
+            </h3>
             <div className="ml-3 grid md:grid-cols-3 gap-2 text-sm md:text-base">
               <div className="flex gap-2 items-center ">
                 <FaBed />
