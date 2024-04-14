@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
@@ -9,7 +9,7 @@ import auth from "../Firebase/firebase.config";
 import "aos/dist/aos.css";
 
 const Login = () => {
-  const { signinUser } = useAuth();
+  const { signinUser, setLoading } = useAuth();
 
   // Providers
   const googleProvider = new GoogleAuthProvider();
@@ -18,14 +18,20 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const { email, password } = data;
-    console.log(data);
-    signinUser(email, password)
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error.message));
+    signinUser(email, password);
   };
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const googleSignin = () => {
-    signInWithPopup(auth, googleProvider);
+    setLoading(true);
+    signInWithPopup(auth, googleProvider).then((result) => {
+      if (result.user) {
+        // Navigate
+        navigate(location?.state || "/");
+      }
+    });
   };
 
   return (
