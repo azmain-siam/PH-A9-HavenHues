@@ -6,7 +6,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { createUser } = useAuth();
+  const { createUser, updateUser } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const notifyError = () => toast.error(`Try Again`);
@@ -16,7 +16,7 @@ const Register = () => {
 
   // Registration
   const onSubmit = (data) => {
-    const { email, password, photoURL } = data;
+    const { email, password, photoURL, fullName } = data;
     if (password.length < 6) {
       setError("Password must have at least 6 charecters");
       return;
@@ -27,12 +27,12 @@ const Register = () => {
       );
       return;
     }
-    createUser(email, password, photoURL)
-      .then((result) => {
-        if (result.user) {
+    createUser(email, password)
+      .then(() => {
+        updateUser(fullName, photoURL).then(() => {
           navigate(location?.state || "/");
           notifySuccess();
-        }
+        });
       })
       .catch((error) => {
         setError(error);

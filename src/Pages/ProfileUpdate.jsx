@@ -1,8 +1,22 @@
+import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
+import { useForm } from "react-hook-form";
 
 const ProfileUpdate = () => {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
+  const notifySuccess = () => toast.success("Successfully Registered");
+  const { register, handleSubmit } = useForm();
+
   console.log(user);
+
+  const handleUpdate = (data) => {
+    const { fullName, photoURL } = data;
+    console.log(data);
+    updateUser(fullName, photoURL).then(() => {
+      notifySuccess();
+    });
+  };
+
   return (
     <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl overflow-hidden w-[95%] lg:w-3/4 mx-auto">
       <div
@@ -39,7 +53,10 @@ const ProfileUpdate = () => {
         data-aos-duration="1000"
         className="md:col-span-3 flex items-center justify-center w-full"
       >
-        <form className="card-body p-5 md:p-8 w-full">
+        <form
+          onSubmit={handleSubmit(handleUpdate)}
+          className="card-body p-5 md:p-8 w-full"
+        >
           <div className="md:text-3xl mb-2 text-xl font-bold text-center">
             <h3>Update Your Profile</h3>
           </div>
@@ -52,6 +69,7 @@ const ProfileUpdate = () => {
               placeholder="Update Your Name"
               className="input focus:outline-none focus:border bg-[#EEEDEE]"
               required
+              {...register("fullName")}
             />
           </div>
           <div className="form-control">
@@ -64,6 +82,7 @@ const ProfileUpdate = () => {
               type="text"
               placeholder="Update Your Photo URL"
               className="input focus:outline-none focus:border bg-[#EEEDEE]"
+              {...register("photoURL")}
             />
           </div>
           <div className="form-control mt-6">

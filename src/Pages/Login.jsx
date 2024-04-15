@@ -39,7 +39,6 @@ const Login = () => {
         notifyError();
       });
   };
-  console.log(error);
 
   const googleSignin = () => {
     setLoading(true);

@@ -8,7 +8,6 @@ import EstateDetails from "../Pages/EstateDetails";
 import Contact from "../Pages/Contact";
 import PrivateRoute from "./PrivateRoute";
 
-
 const router = createBrowserRouter([
   {
     path: "/",

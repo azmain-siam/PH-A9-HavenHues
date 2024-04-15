@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import EstateCard from "./EstateCard";
 
 const Estates = ({ estates }) => {
-  console.log(estates);
-
   return (
     <div className="my-5 max-w-7xl w-[95%] md:w-[93%] mx-auto mt-10 md:mt-14">
       <div id="estates" className="text-center mb-10 md:mb-14">

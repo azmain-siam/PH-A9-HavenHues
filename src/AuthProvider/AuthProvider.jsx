@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 export const AuthContext = createContext(null);
@@ -27,10 +28,19 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // Update User
+  const updateUser = (name, image) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: image,
+    });
+  };
+
   // Logout
   const logout = () => {
-    signOut(auth);
+    setLoading(true);
     setUser(null);
+    return signOut(auth);
   };
 
   // Observer
@@ -38,8 +48,8 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        setLoading(false);
       }
+      setLoading(false);
     });
     return () => {
       unSubscribe();
@@ -55,6 +65,7 @@ const AuthProvider = ({ children }) => {
     logout,
     setLoading,
     loading,
+    updateUser,
   };
 
   return (
