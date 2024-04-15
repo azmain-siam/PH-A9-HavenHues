@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import auth from "../Firebase/firebase.config";
+
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -15,6 +16,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const [loading, setLoading] = useState(true);
+  const [reload, setReload] = useState(false);
 
   // Register user
   const createUser = (email, password) => {
@@ -54,7 +56,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [reload]);
 
   // Pass the infos
   const authInfo = {
@@ -66,6 +68,8 @@ const AuthProvider = ({ children }) => {
     setLoading,
     loading,
     updateUser,
+    setReload,
+    reload,
   };
 
   return (

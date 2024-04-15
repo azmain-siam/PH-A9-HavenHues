@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
-
 const Navbar = () => {
   const { user, logout } = useAuth();
+  console.log(user);
+
   const notifyLogout = () => toast.success("Successfully Logged Out");
 
   const handleLogout = () => {
@@ -46,6 +47,9 @@ const Navbar = () => {
               <li>
                 <NavLink to={"/profile-update"}>Update Profile</NavLink>
               </li>
+              <li>
+                <NavLink to={"/contact"}>Contact Us</NavLink>
+              </li>
             </ul>
           </div>
           <Link
@@ -81,8 +85,11 @@ const Navbar = () => {
               >
                 <div className="w-8 md:w-10 rounded-full">
                   <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    src={
+                      user?.photoURL ||
+                      "https://static.vecteezy.com/system/resources/previews/005/005/788/original/user-icon-in-trendy-flat-style-isolated-on-grey-background-user-symbol-for-your-web-site-design-logo-app-ui-illustration-eps10-free-vector.jpg"
+                    }
+                    alt=""
                   />
                 </div>
               </div>

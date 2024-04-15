@@ -3,8 +3,8 @@ import useAuth from "../hooks/useAuth";
 import { useForm } from "react-hook-form";
 
 const ProfileUpdate = () => {
-  const { user, updateUser } = useAuth();
-  const notifySuccess = () => toast.success("Successfully Registered");
+  const { user, updateUser, setReload, reload } = useAuth();
+  const notifySuccess = () => toast.success("Profile Updated Successfully");
   const { register, handleSubmit } = useForm();
 
   console.log(user);
@@ -14,6 +14,7 @@ const ProfileUpdate = () => {
     console.log(data);
     updateUser(fullName, photoURL).then(() => {
       notifySuccess();
+      setReload(!reload);
     });
   };
 
@@ -24,10 +25,13 @@ const ProfileUpdate = () => {
         data-aos-duration="1000"
         className="bg-gradient-to-r from-[#596EC4] to-[#5952B8] capitalize md:col-span-3 py-10 md:p-0 px-4 rounded-b-3xl md:rounded-r-[150px] text-white md:flex flex-col justify-center items-center min-h-full"
       >
-        <div className="w-36 h-36 bg-white rounded-full flex justify-center mx-auto items-center mb-5">
+        <div className="w-36 h-36 overflow-hidden bg-white rounded-full flex justify-center mx-auto items-center mb-5">
           <img
-            className="h-full w-full object-cover rounded-full"
-            src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+            className="h-full w-full object-cover"
+            src={
+              user.photoURL ||
+              "https://static.vecteezy.com/system/resources/previews/005/005/788/original/user-icon-in-trendy-flat-style-isolated-on-grey-background-user-symbol-for-your-web-site-design-logo-app-ui-illustration-eps10-free-vector.jpg"
+            }
             alt=""
           />
         </div>
@@ -35,15 +39,11 @@ const ProfileUpdate = () => {
           <tbody>
             <tr className="border-none ">
               <td className="font-semibold">Name:</td>
-              <td>John Doe</td>
+              <td>{user?.displayName || "N/A"}</td>
             </tr>
             <tr className="border-none">
               <td className="font-semibold">Email:</td>
-              <td>abdejw@email.com</td>
-            </tr>
-            <tr>
-              <td className="font-semibold">Photo:</td>
-              <td>Photo URL</td>
+              <td className="lowercase">{user?.email || "N/A"}</td>
             </tr>
           </tbody>
         </table>
