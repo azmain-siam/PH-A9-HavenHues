@@ -31,17 +31,17 @@ const EstateDetails = () => {
       </div>
       <div className="flex flex-col lg:flex-row justify-between gap-6 lg:items-center mb-6 md:mb-10">
         <div className="space-y-2">
-          <div className="flex gap-4 items-center">
+          <div className="flex flex-wrap gap-3 items-center">
             <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">
               {estate_title}
             </h3>
             <div className="flex gap-1 items-center">
               <div
-                className={`h-4 w-4 rounded-full ${
+                className={`h-3 md:h-4 w-3 md:w-4 rounded-full ${
                   status === "Sale" ? "bg-[#24801F] " : "bg-[#F95C64]"
                 }`}
               ></div>
-              <h3 className="md:text-lg font-semibold pt-[2px]">
+              <h3 className="text-sm md:text-base font-semibold md:pt-[2px]">
                 For {status}
               </h3>
             </div>
