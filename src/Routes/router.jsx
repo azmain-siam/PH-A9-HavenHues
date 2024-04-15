@@ -8,6 +8,7 @@ import EstateDetails from "../Pages/EstateDetails";
 import Contact from "../Pages/Contact";
 import PrivateRoute from "./PrivateRoute";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile-update",
-        element: <ProfileUpdate />,
+        element: (
+          <PrivateRoute>
+            <ProfileUpdate />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -41,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <PrivateRoute>
+            <Contact />
+          </PrivateRoute>
+        ),
       },
     ],
   },

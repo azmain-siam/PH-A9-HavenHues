@@ -5,11 +5,18 @@ import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
+import toast from "react-hot-toast";
 
 import "aos/dist/aos.css";
+import { useState } from "react";
 
 const Login = () => {
   const { signinUser, setLoading } = useAuth();
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const notifyError = () => toast.error(`Try Again`);
+  const notifySuccess = () => toast.success("Successfully Logged In");
 
   // Providers
   const googleProvider = new GoogleAuthProvider();
@@ -18,20 +25,37 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const { email, password } = data;
-    signinUser(email, password);
+    signinUser(email, password)
+      .then((result) => {
+        if (result.user) {
+          navigate(location?.state || "/");
+          notifySuccess();
+        }
+      })
+      .catch((error) => {
+        if (error.message === "Firebase: Error (auth/invalid-credential).") {
+          setError("Email and Password Does Not Match");
+        }
+        notifyError();
+      });
   };
-
-  const navigate = useNavigate();
-  const location = useLocation();
+  console.log(error);
 
   const googleSignin = () => {
     setLoading(true);
-    signInWithPopup(auth, googleProvider).then((result) => {
-      if (result.user) {
-        // Navigate
-        navigate(location?.state || "/");
-      }
-    });
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        if (result.user) {
+          navigate(location?.state || "/");
+          notifySuccess();
+        }
+      })
+      .catch((error) => {
+        if (error.message === "Firebase: Error (auth/invalid-credential).") {
+          setError("Email and Password Does Not Match");
+        }
+        notifyError();
+      });
   };
 
   return (
@@ -68,6 +92,11 @@ const Login = () => {
                 {...register("password")}
               />
             </div>
+            {error ? (
+              <p className="text-sm text-red-600 font-medium">{error}</p>
+            ) : (
+              ""
+            )}
             <div className="form-control mt-6">
               <button className="btn bg-[#5b56bb] border-[#5b56bb] hover:border-[#28282B] hover:text-[#28282B] text-white uppercase transition-all hover:bg-white duration-300 hover:scale-105">
                 sign in

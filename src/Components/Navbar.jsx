@@ -1,8 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const notifyLogout = () => toast.success("Successfully Logged Out");
+
+  const handleLogout = () => {
+    logout();
+    notifyLogout();
+  };
 
   return (
     <div className="shadow-md">
@@ -87,7 +94,7 @@ const Navbar = () => {
                   <a className="justify-between">Profile</a>
                 </li>
                 <li>
-                  <a onClick={logout}>Logout</a>
+                  <a onClick={handleLogout}>Logout</a>
                 </li>
               </ul>
             </div>

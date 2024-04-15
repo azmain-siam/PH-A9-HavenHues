@@ -1,19 +1,43 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser } = useAuth();
-
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const notifyError = () => toast.error(`Try Again`);
+  const notifySuccess = () => toast.success("Successfully Registered");
   const { register, handleSubmit } = useForm();
+  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])/;
 
+  // Registration
   const onSubmit = (data) => {
     const { email, password, photoURL } = data;
-    console.log(data);
+    if (password.length < 6) {
+      setError("Password must have at least 6 charecters");
+      return;
+    }
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must contain at least one uppercase and lowercase letter"
+      );
+      return;
+    }
     createUser(email, password, photoURL)
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error.message));
+      .then((result) => {
+        if (result.user) {
+          navigate(location?.state || "/");
+          notifySuccess();
+        }
+      })
+      .catch((error) => {
+        setError(error);
+        notifyError();
+      });
   };
 
   return (
@@ -100,6 +124,11 @@ const Register = () => {
               {...register("password")}
             />
           </div>
+          {error ? (
+            <p className="text-xs text-red-600 font-medium">{error}</p>
+          ) : (
+            ""
+          )}
           <div className="form-control mt-6">
             <button className="btn bg-[#5b56bb] border-[#5b56bb] hover:border-[#28282B] hover:text-[#28282B] text-white uppercase transition-all hover:bg-white duration-300 hover:scale-105">
               sign up

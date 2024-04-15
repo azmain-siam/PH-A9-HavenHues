@@ -23,25 +23,29 @@ const EstateDetails = () => {
 
   return (
     <div className="max-w-7xl w-[93%] md:w-[93%] mx-auto mt-4 mb-14">
-      <div className="w-full h-[240px] md:h-[400px] lg:h-[550px] rounded-xl overflow-hidden cursor-pointer mb-3">
+      <div className="w-full h-[240px] md:h-[400px] lg:h-[550px] rounded-xl overflow-hidden cursor-pointer mb-8">
         <img
           className="object-cover w-full h-full hover:scale-105 duration-700 transition-all"
           src={image}
         />
       </div>
-      <div className="flex gap-1 items-center mb-2">
-        <div
-          className={`h-4 w-4 rounded-full ${
-            status === "Sale" ? "bg-[#24801F] " : "bg-[#F95C64]"
-          }`}
-        ></div>
-        <h3 className="md:text-lg font-semibold pt-[2px]">For {status}</h3>
-      </div>
       <div className="flex flex-col lg:flex-row justify-between gap-6 lg:items-center mb-6 md:mb-10">
         <div className="space-y-2">
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">
-            {estate_title}
-          </h3>
+          <div className="flex gap-4 items-center">
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">
+              {estate_title}
+            </h3>
+            <div className="flex gap-1 items-center">
+              <div
+                className={`h-4 w-4 rounded-full ${
+                  status === "Sale" ? "bg-[#24801F] " : "bg-[#F95C64]"
+                }`}
+              ></div>
+              <h3 className="md:text-lg font-semibold pt-[2px]">
+                For {status}
+              </h3>
+            </div>
+          </div>
           <p className="font-medium text-[#585858]  text-sm md:text-lg">
             {description}{" "}
           </p>
@@ -72,10 +76,9 @@ const EstateDetails = () => {
             <h3 className="md:text-lg font-semibold mb-2">Location:</h3>
             <div className="ml-3 grid md:grid-cols-3 gap-2 text-sm md:text-base">
               <div className="flex gap-2 items-center ">
-                <FaLocationDot size={18}/>
+                <FaLocationDot size={18} />
                 <p className="font-medium pt-[2px]">{location}</p>
               </div>
-              
             </div>
           </div>
           <div className="px-5 py-4 border-b">
