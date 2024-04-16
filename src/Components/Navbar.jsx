@@ -3,7 +3,6 @@ import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 const Navbar = () => {
   const { user, logout } = useAuth();
-  console.log(user);
 
   const notifyLogout = () => toast.success("Successfully Logged Out");
 

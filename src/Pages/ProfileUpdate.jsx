@@ -4,10 +4,8 @@ import { useForm } from "react-hook-form";
 
 const ProfileUpdate = () => {
   const { user, updateUser, setReload, reload } = useAuth();
-  const notifySuccess = () => toast.success("Profile Updated Successfully");
-  const { register, handleSubmit } = useForm();
-
-  console.log(user);
+  const notifySuccess = () => toast.success("Your Profile Updated Successfully");
+  const { register, handleSubmit, reset } = useForm();
 
   const handleUpdate = (data) => {
     const { fullName, photoURL } = data;
@@ -16,6 +14,7 @@ const ProfileUpdate = () => {
       notifySuccess();
       setReload(!reload);
     });
+    reset();
   };
 
   return (
@@ -35,7 +34,7 @@ const ProfileUpdate = () => {
             alt=""
           />
         </div>
-        <table className="table border-none text-sm *:text-left mx-auto w-fit text-center p-0 md:text-base">
+        <table className="table border-none text-sm *:text-left mx-auto w-fit text-center md:text-base">
           <tbody>
             <tr className="border-none ">
               <td className="font-semibold">Name:</td>
@@ -44,6 +43,10 @@ const ProfileUpdate = () => {
             <tr className="border-none">
               <td className="font-semibold">Email:</td>
               <td className="lowercase">{user?.email || "N/A"}</td>
+            </tr>
+            <tr className="border-none ">
+              <td className="font-semibold">PhotoURL:</td>
+              <td className="lowercase">{user?.photoURL || "N/A"}</td>
             </tr>
           </tbody>
         </table>
@@ -80,6 +83,7 @@ const ProfileUpdate = () => {
             </label>
             <input
               type="text"
+              defaultValue={user.photoURL}
               placeholder="Update Your Photo URL"
               className="input focus:outline-none focus:border bg-[#EEEDEE]"
               {...register("photoURL")}

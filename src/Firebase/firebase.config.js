@@ -1,13 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+console.log(import.meta.env.VITE_APIKEY);
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVxEYThE8bZQZAoSS1HkfKKudPhMRpkQk",
-  authDomain: "a9-react-auth.firebaseapp.com",
-  projectId: "a9-react-auth",
-  storageBucket: "a9-react-auth.appspot.com",
-  messagingSenderId: "974876829086",
-  appId: "1:974876829086:web:e7231662ea09ae9242a28f",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

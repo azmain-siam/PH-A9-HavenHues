@@ -3,7 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 import toast from "react-hot-toast";
 
@@ -20,6 +24,7 @@ const Login = () => {
 
   // Providers
   const googleProvider = new GoogleAuthProvider();
+  const gitHubProvider = new GithubAuthProvider();
 
   const { register, handleSubmit } = useForm();
 
@@ -43,6 +48,23 @@ const Login = () => {
   const googleSignin = () => {
     setLoading(true);
     signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        if (result.user) {
+          navigate(location?.state || "/");
+          notifySuccess();
+        }
+      })
+      .catch((error) => {
+        if (error.message === "Firebase: Error (auth/invalid-credential).") {
+          setError("Email and Password Does Not Match");
+        }
+        notifyError();
+      });
+  };
+
+  const gitHubSignIn = () => {
+    setLoading(true);
+    signInWithPopup(auth, gitHubProvider)
       .then((result) => {
         if (result.user) {
           navigate(location?.state || "/");
@@ -116,7 +138,10 @@ const Login = () => {
             >
               <FaGoogle size={16} /> sign in with google
             </button>
-            <button className="btn bg-white border-[#28282B] text-[#28282B] hover:border-[#5b56bb] hover:bg-[#5b56bb] hover:text-white capitalize duration-300">
+            <button
+              onClick={gitHubSignIn}
+              className="btn bg-white border-[#28282B] text-[#28282B] hover:border-[#5b56bb] hover:bg-[#5b56bb] hover:text-white capitalize duration-300"
+            >
               <FaGithub size={18} /> sign in with gitHub
             </button>
           </div>
