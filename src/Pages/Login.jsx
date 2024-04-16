@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
+import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import {
@@ -20,8 +20,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const notifyError = () => toast.error(`Try Again`);
+  const notifyError = () => toast.error(`Please Check & Try Again`);
   const notifySuccess = () => toast.success("Successfully Logged In");
+  const [showPass, setShowPass] = useState(false);
 
   // Providers
   const googleProvider = new GoogleAuthProvider();
@@ -109,13 +110,25 @@ const Login = () => {
                   Password
                 </span>
               </label>
-              <input
-                type="password"
-                placeholder="Your Password"
-                className="input focus:outline-none focus:border bg-[#EEEDEE]"
-                required
-                {...register("password")}
-              />
+              <div className="relative flex w-full items-center">
+                <input
+                  type={showPass ? "text" : "password"}
+                  placeholder="Your Password"
+                  className="input focus:outline-none w-full focus:border bg-[#EEEDEE]"
+                  required
+                  {...register("password")}
+                />
+                <span
+                  onClick={() => setShowPass(!showPass)}
+                  className="cursor-pointer absolute right-5"
+                >
+                  {showPass ? (
+                    <FaRegEyeSlash size={22} />
+                  ) : (
+                    <FaRegEye size={20} />
+                  )}
+                </span>
+              </div>
             </div>
             {error ? (
               <p className="text-sm text-red-600 font-medium">{error}</p>
