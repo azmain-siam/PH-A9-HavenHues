@@ -1,8 +1,19 @@
-# React + Vite
+# HavenHues Properties.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to HavenHues, your one-stop destination for residential real estate listings.
 
-Currently, two official plugins are available:
+## Features and Characteristics of this website:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive User Interface**: Engage with our intuitive and user-friendly interface designed to provide a seamless browsing experience.
+- **Rich Multimedia Content**: Explore a vast collection of high-quality images and videos showcasing our properties in stunning detail.
+- **Detailed Property Descriptions**: Get comprehensive information about each property, including amenities, specifications, and neighborhood details.
+- **Responsive Design**: Access MyWebsite from any device, including desktops, tablets, and smartphones, thanks to our responsive design.
+- **Secure User Accounts**: Create a personal account to save favorite listings, receive updates, and manage preferences securely.
+
+## npm packages which used in this website:
+
+- **AOS Package**
+- **React Hook form**
+- **Swiper slider**
+
+**Live Site**: https://a9-react-auth.web.app
