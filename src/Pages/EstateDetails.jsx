@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { FaBath, FaBed, FaLocationDot, FaRulerCombined } from "react-icons/fa6";
 import { useLoaderData, useParams } from "react-router-dom";
 
@@ -23,6 +24,9 @@ const EstateDetails = () => {
 
   return (
     <div className="max-w-7xl w-[93%] md:w-[93%] mx-auto mt-4 mb-14">
+      <Helmet>
+        <title>HavenHues | Details</title>
+      </Helmet>
       <div className="w-full h-[240px] md:h-[400px] lg:h-[550px] rounded-xl overflow-hidden cursor-pointer mb-8">
         <img
           className="object-cover w-full h-full hover:scale-105 duration-700 transition-all"

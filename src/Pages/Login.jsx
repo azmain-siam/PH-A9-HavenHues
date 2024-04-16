@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 
 import "aos/dist/aos.css";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { signinUser, setLoading } = useAuth();
@@ -81,6 +82,9 @@ const Login = () => {
 
   return (
     <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl justify-between overflow-hidden w-[95%] lg:w-3/4 mx-auto">
+      <Helmet>
+        <title>HavenHues | Login</title>
+      </Helmet>
       <div className="col-span-3">
         <div data-aos="fade-right" data-aos-duration="1000">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">

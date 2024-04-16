@@ -1,10 +1,12 @@
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
 
 const ProfileUpdate = () => {
   const { user, updateUser, setReload, reload } = useAuth();
-  const notifySuccess = () => toast.success("Your Profile Updated Successfully");
+  const notifySuccess = () =>
+    toast.success("Your Profile Updated Successfully");
   const { register, handleSubmit, reset } = useForm();
 
   const handleUpdate = (data) => {
@@ -19,6 +21,9 @@ const ProfileUpdate = () => {
 
   return (
     <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl overflow-hidden w-[95%] lg:w-3/4 mx-auto">
+      <Helmet>
+        <title>HavenHues | Profile</title>
+      </Helmet>
       <div
         data-aos="fade-right"
         data-aos-duration="1000"

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Banner from "../Components/Banner";
 import Estates from "../Components/Estates";
 import { useLoaderData } from "react-router-dom";
@@ -6,6 +7,9 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>HavenHues | Home</title>
+      </Helmet>
       <Banner />
       <Estates estates={estates} />
     </div>
