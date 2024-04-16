@@ -1,4 +1,4 @@
-# HavenHues Properties.
+# HavenHues Properties
 
 Welcome to HavenHues, your one-stop destination for residential real estate listings.
 
