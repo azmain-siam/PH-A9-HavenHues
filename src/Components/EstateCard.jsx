@@ -19,7 +19,6 @@ const EstateCard = ({ estate }) => {
     <div>
       <div
         data-aos="fade-up"
-        data-aos-duration="1000"
         className="group/item cursor-default card rounded-xl w-full max-w-[420px] mx-auto h-full border shadow-md hover:shadow-xl duration-300"
       >
         <figure className="relative">
