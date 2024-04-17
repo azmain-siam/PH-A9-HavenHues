@@ -23,7 +23,7 @@ const EstateCard = ({ estate }) => {
         className="group/item cursor-default card rounded-xl w-full max-w-[420px] mx-auto h-full border shadow-md hover:shadow-xl duration-300"
       >
         <figure className="relative">
-          <div className="w-full h-[200px] md:h-[250px] overflow-hidden">
+          <div className="w-full h-[200px] md:h-[230px] overflow-hidden">
             <img
               className="w-full h-full group-hover/item:scale-110 duration-700 object-cover"
               src={image}
@@ -51,7 +51,7 @@ const EstateCard = ({ estate }) => {
               </li>
             ))}
           </ul>
-          <hr className="my-3" />
+          <hr className="my-1" />
           <div className="text-sm flex flex-wrap justify-between  items-center text-[#585858]">
             <div className="flex gap-1 items-center">
               <FaBed />
@@ -67,7 +67,7 @@ const EstateCard = ({ estate }) => {
             </div>
           </div>
           <Link to={`/estates/${id}`}>
-            <button className="btn w-full mt-4 bg-[#5b56bb] border-[#5b56bb] hover:border-[#28282B] hover:text-[#28282B] text-white uppercase transition-all hover:bg-white duration-300 hover:scale-105">
+            <button className="btn w-full mt-2 bg-[#5b56bb] border-[#5b56bb] hover:border-[#28282B] hover:text-[#28282B] text-white uppercase transition-all hover:bg-white duration-300 hover:scale-105">
               show details
             </button>
           </Link>

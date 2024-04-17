@@ -49,10 +49,6 @@ const ProfileUpdate = () => {
               <td className="font-semibold">Email:</td>
               <td className="lowercase">{user?.email || "N/A"}</td>
             </tr>
-            <tr className="border-none ">
-              <td className="font-semibold">PhotoURL:</td>
-              <td className="lowercase">{user?.photoURL || "N/A"}</td>
-            </tr>
           </tbody>
         </table>
       </div>

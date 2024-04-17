@@ -6,7 +6,7 @@ import "swiper/swiper-bundle.css";
 
 const Slider = ({ slides }) => {
   return (
-    <div>
+    <div className="cursor-default">
       <Swiper
         modules={[Navigation, Autoplay]}
         spaceBetween={0}

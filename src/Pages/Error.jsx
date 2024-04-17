@@ -5,7 +5,7 @@ const Error = () => {
   return (
     <div className="flex justify-center items-center h-screen font-montserrat">
       <Helmet>
-        <title>404 error</title>
+        <title>404 Error</title>
       </Helmet>
       <div className="text-center">
         <h1 className="text-7xl md:text-[150px] font-extrabold">Oops!</h1>

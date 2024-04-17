@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet";
 import { FaBath, FaBed, FaLocationDot, FaRulerCombined } from "react-icons/fa6";
-import { useLoaderData, useParams } from "react-router-dom";
+import { BiSolidPhoneCall } from "react-icons/bi";
+
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const EstateDetails = () => {
   const estates = useLoaderData();
@@ -25,7 +27,7 @@ const EstateDetails = () => {
   return (
     <div className="max-w-7xl w-[93%] md:w-[93%] mx-auto mt-4 mb-14">
       <Helmet>
-        <title>HavenHues | Details</title>
+        <title>Details | HavenHues</title>
       </Helmet>
       <div className="w-full h-[240px] md:h-[400px] lg:h-[550px] rounded-xl overflow-hidden cursor-pointer mb-8">
         <img
@@ -137,6 +139,18 @@ const EstateDetails = () => {
               </ul>
             </div>
           </div>
+        </div>
+        <div className="mt-8 flex items-center gap-2">
+          <BiSolidPhoneCall size={36} />
+          <h3 className="font-semibold text-2xl">
+            Want to {status == "Sale" ? "Buy" : "take Rent"}?{" "}
+            <Link
+              to={"/contact"}
+              className="underline font-bold italic underline-offset-[5px] text-[#5b56bb]"
+            >
+              Contact With Buider!
+            </Link>
+          </h3>
         </div>
       </div>
     </div>
