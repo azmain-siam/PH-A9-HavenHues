@@ -66,9 +66,13 @@ const Navbar = () => {
             <li>
               <NavLink to={"/profile-update"}>Update Profile</NavLink>
             </li>
-            <li>
-              <NavLink to={"/contact"}>Contact Us</NavLink>
-            </li>
+            {user ? (
+              <li>
+                <NavLink to={"/contact"}>Contact Us</NavLink>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
         <div className="navbar-end gap-1 md:gap-3">

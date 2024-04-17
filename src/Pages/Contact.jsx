@@ -1,6 +1,10 @@
 import { Helmet } from "react-helmet";
 
 const Contact = () => {
+  const handleMessege = (e) => {
+    e.preventDefault();
+    e.target.reset;
+  };
   return (
     <div className="grid md:grid-cols-6 shadow-4xl min-h-[450px] my-10 rounded-3xl overflow-hidden w-[95%] lg:w-3/4 mx-auto">
       <Helmet>
@@ -23,7 +27,7 @@ const Contact = () => {
         data-aos-duration="1000"
         className="md:col-span-3 flex items-center justify-center w-full"
       >
-        <form className="card-body p-5 md:p-6 w-full">
+        <form onClick={handleMessege} className="card-body p-5 md:p-6 w-full">
           <div className="form-control ">
             <label className="label">
               <span className="label-text font-medium text-base">

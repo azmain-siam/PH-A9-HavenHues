@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import Banner from "../Components/Banner";
 import Estates from "../Components/Estates";
 import { useLoaderData } from "react-router-dom";
+import Feature from "../Components/Feature";
 const Home = () => {
   const estates = useLoaderData();
 
@@ -12,6 +13,7 @@ const Home = () => {
       </Helmet>
       <Banner />
       <Estates estates={estates} />
+      <Feature />
     </div>
   );
 };

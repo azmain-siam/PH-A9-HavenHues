@@ -142,7 +142,7 @@ const EstateDetails = () => {
         </div>
         <div className="mt-8 flex items-center gap-2">
           <BiSolidPhoneCall size={36} />
-          <h3 className="font-semibold text-2xl">
+          <h3 className="font-semibold text-lg md:text-xl lg:text-2xl">
             Want to {status == "Sale" ? "Buy" : "take Rent"}?{" "}
             <Link
               to={"/contact"}
